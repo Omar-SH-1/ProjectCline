@@ -34,6 +34,16 @@ public:
         std::cout << "~Logger() " << id << "\n";
     }
 };
+class InheritedLogger: public Logger {
+public:
+    InheritedLogger() {
+        std::cout << "InheritedLogger()\n";
+    }
+
+    ~InheritedLogger() {
+        std::cout << "~InheritedLogger()\n";
+    }
+};
 void f(const Logger& x) {
     std::cout << "void f\n";
 }
@@ -42,8 +52,5 @@ void f(Logger&& x){
 }
 
 int main() {
-    Logger x1;
-    Logger x2;
-    x2=x1;
-    x2=std::move(x1);
+    InheritedLogger x;
 }
